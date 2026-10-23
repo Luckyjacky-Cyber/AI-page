@@ -15,7 +15,7 @@
   let width = 0, height = 0, stars = [];
   const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
   const animations = new Set();
-  const palettes = ['184,231,250', '209,190,255', '255,220,176'];
+  const palettes = ['184,231,250', '209,190,255', '255,220,176', '191,198,244', '174,217,240'];
   let chapter = Number(document.body.dataset.chapter || 0);
   const running = () => !paused && !reduced.matches && !document.hidden;
 
@@ -104,7 +104,7 @@
     burst = 1;
     for (const animation of animations) animation.cancel();
     animations.clear();
-    document.querySelectorAll('#chapter, #headline, #intro, #log-text').forEach((element, index) => {
+    document.querySelectorAll('.scene-panel.is-current .chapter, .scene-panel.is-current h1, .scene-panel.is-current h2').forEach((element, index) => {
       const animation = element.animate([
         { opacity: 0, transform: 'translateY(12px)', filter: 'blur(4px)' },
         { opacity: 1, transform: 'translateY(0)', filter: 'blur(0)' }

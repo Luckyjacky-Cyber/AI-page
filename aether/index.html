@@ -3,30 +3,74 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AETHER 以太 — 越过已知边界</title>
-<meta name="description" content="AETHER 以太，一场关于深空、时间与未知的交互式科幻旅程。">
+<meta name="description" content="越过星门，解读静默航域的信号，阅读远征日志，探索以太舰队的三艘星际战舰。">
 <meta name="theme-color" content="#070b10">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070b10'/%3E%3Cpath d='M7 24 16 6 25 24M11 19h10' fill='none' stroke='%23a9edfa' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preload" as="image" href="hero.png">
-<link rel="stylesheet" href="style.css?v=3">
-<link rel="stylesheet" href="motion.css?v=4">
+<link rel="stylesheet" href="style.css?v=5"><link rel="stylesheet" href="motion.css?v=5">
 </head>
-<body data-chapter="0">
+<body data-chapter="0" data-ship="0">
+<a class="skip-link" href="#explore">跳到航行内容</a>
 <div class="scene" aria-hidden="true">
-  <div class="chapter-scene arrival-scene" data-scene="0">
-    <img class="scene-art original-gate" src="hero.png" alt="" width="1536" height="1024" fetchpriority="high">
-  </div>
-  <div class="chapter-scene silence-scene" data-scene="1"><img class="scene-art" src="silence.png" alt="" width="1536" height="1024" decoding="async"></div>
-  <div class="chapter-scene beyond-scene" data-scene="2"><img class="scene-art" src="beyond.png" alt="" width="1536" height="1024" decoding="async"></div>
-</div><div class="shade" aria-hidden="true"></div>
-<header><a class="brand" href="#" aria-label="AETHER 以太首页"><span class="mark">Λ</span><span>AETHER<small>以 太</small></span></a><nav aria-label="主导航"><a href="#explore" class="nav-active">探索计划</a><button id="story-open">关于以太 <span>↗</span></button></nav><button class="mode" id="mode" aria-pressed="false"><span class="mode-icon">⛶</span> <span id="mode-label">沉浸模式</span></button></header>
-<main id="explore">
-<div class="eyebrow"><span class="line"></span> THE NEXT FRONTIER <span class="edition">/ 先行者计划 01</span></div>
-<section class="hero" aria-labelledby="headline"><div class="copy"><p class="chapter" id="chapter">CHAPTER 01 — THE ARRIVAL</p><h1 id="headline">越过已知<span>边界之外。</span></h1><p class="intro" id="intro">当最后一束地球的光消失在身后，<br>我们开始，重新想象远方。</p><button class="primary" id="journey">开启探索 <span>↗</span></button><span class="journey-note">一段来自未来的航行记录</span></div><div class="annotation"><span class="cross">+</span><div>AE—01 / 轨道之门<small>BEYOND THE VISIBLE HORIZON</small></div></div><div class="vertical">AETHER EXPLORATION PROGRAM · 2186</div></section>
-<section class="exploration" aria-label="探索章节"><div class="section-label"><span>航行日志</span><small>SELECT A CHAPTER</small></div><div class="tabs" role="tablist" aria-label="选择航行章节"><button role="tab" id="tab-0" aria-controls="log" aria-selected="true" data-index="0"><span class="number">01</span><span>抵达未知<small>THE ARRIVAL</small></span><span class="tab-arrow">↗</span></button><button role="tab" id="tab-1" aria-controls="log" aria-selected="false" data-index="1" tabindex="-1"><span class="number">02</span><span>穿越静默<small>THE SILENCE</small></span><span class="tab-arrow">↗</span></button><button role="tab" id="tab-2" aria-controls="log" aria-selected="false" data-index="2" tabindex="-1"><span class="number">03</span><span>重构远方<small>THE BEYOND</small></span><span class="tab-arrow">↗</span></button></div></section>
-<div id="log" role="tabpanel" aria-labelledby="tab-0" aria-live="polite"><span class="log-index">LOG 001</span><p id="log-text">星门近在眼前。我们减慢航速，让未知先一步靠近。</p><span class="coordinates" id="coordinates">SECTOR 07 / ORBITAL GATE</span></div>
+<div class="chapter-scene" data-scene="0"><img class="scene-art original-gate" src="hero.png" alt="" width="1536" height="1024" fetchpriority="high"></div>
+<div class="chapter-scene" data-scene="1"><img class="scene-art" src="silence.png" alt="" width="1536" height="1024" decoding="async"></div>
+<div class="chapter-scene" data-scene="2"><img class="scene-art" src="beyond.png" alt="" width="1536" height="1024" decoding="async"></div>
+<div class="chapter-scene archive-scene" data-scene="3"><img class="scene-art" src="silence.png" alt="" width="1536" height="1024" decoding="async"></div>
+<div class="chapter-scene fleet-scene" data-scene="4">
+<img class="ship-art" data-vessel="0" src="ark.png" alt="" width="1920" height="819" decoding="async">
+<img class="ship-art" data-vessel="1" src="sentinel.png" alt="" width="1774" height="887" decoding="async">
+<img class="ship-art" data-vessel="2" src="swift.png" alt="" width="1536" height="1024" decoding="async">
+</div></div><div class="shade" aria-hidden="true"></div>
+<header class="site-header">
+<a class="brand" href="#explore" aria-label="AETHER 以太首页"><span class="mark">Λ</span><span>AETHER<small>以 太 · 深 空 远 征</small></span></a>
+<span class="header-coordinate">EXPEDITION 2186 <i></i> SECTOR <span id="sector">07</span></span>
+<div class="header-actions"><button id="story-open" class="text-button">关于以太</button><button id="mode" class="mode" aria-pressed="false">沉浸模式</button></div>
+</header>
+<nav class="scene-nav" aria-label="场景导航">
+<span class="rail-caption">航 行 索 引</span>
+<a href="#explore" aria-current="location"><span>探索计划</span><b>01</b></a>
+<a href="#archive"><span>航行档案</span><b>02</b></a>
+<a href="#fleet"><span>星舰图鉴</span><b>03</b></a>
+<a href="#explore" class="return-link">返回起点</a>
+</nav>
+<main>
+<section id="explore" class="scene-panel is-current" data-section="0" aria-labelledby="headline">
+<div class="scene-top"><span class="eyebrow">THE NEXT FRONTIER</span><span>先行者计划 / 01</span></div>
+<div class="chapter-copy"><p class="chapter" id="chapter">CHAPTER 01 / THE ARRIVAL</p><h1 id="headline">越过已知<span>边界之外。</span></h1>
+<p class="intro" id="intro">当最后一束地球的光消失在身后，<br>我们开始，重新想象远方。</p>
+<div class="actions"><button class="primary" id="journey">开启探索</button><button class="quiet-button" id="read-current-log">阅读航行记录</button></div>
+<div class="signal-console" id="signal-console" hidden><div class="signal-head"><span>未知窄带信号</span><span>1420 MHz / 接收中</span></div>
+<div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button id="decode" class="quiet-button" aria-expanded="false" aria-controls="signal-message">解码信号</button>
+<div id="signal-message" class="decoded-message" hidden><span>译文 / 片段 03</span><p>“不要追逐最亮的星。<br>请寻找，仍然记得你们的那一颗。”</p><small>发送时间早于舰队启航 126 年。来源：未知。</small></div></div></div>
+<div class="world-caption"><span class="cross">＋</span><div><span id="world-name">AE—01 / 轨道之门</span><small id="world-en">THE LAST LIGHT OF HOME</small></div></div>
+<div class="exploration-bottom"><div class="exploration"><div class="section-label">航行日志<small>SELECT A CHAPTER</small></div><div class="chapter-tabs" role="tablist" aria-label="选择探索章节">
+<button role="tab" id="chapter-tab-0" aria-controls="chapter-log" aria-selected="true" data-chapter-choice="0"><span>01</span><span>抵达未知<small>THE ARRIVAL</small></span></button>
+<button role="tab" id="chapter-tab-1" aria-controls="chapter-log" aria-selected="false" tabindex="-1" data-chapter-choice="1"><span>02</span><span>穿越静默<small>THE SILENCE</small></span></button>
+<button role="tab" id="chapter-tab-2" aria-controls="chapter-log" aria-selected="false" tabindex="-1" data-chapter-choice="2"><span>03</span><span>重构远方<small>THE BEYOND</small></span></button>
+</div></div><div class="chapter-log" id="chapter-log" role="tabpanel" aria-labelledby="chapter-tab-0" aria-live="polite"><span class="log-label" id="log-index">LOG 001</span><p id="log-text">星门近在眼前。我们减慢航速，让未知先一步靠近。</p><span id="coordinates" class="coordinate">SECTOR 07 / ORBITAL GATE</span></div>
+<a href="#archive" class="scroll-hint">向下翻开航行档案 <span aria-hidden="true">⌄</span></a></div>
+</section>
+<section id="archive" class="scene-panel archive-panel" data-section="1" aria-labelledby="archive-title">
+<div class="scene-top"><span class="eyebrow">VOICES FROM THE EXPEDITION</span><span>公共档案 / 已解密</span></div>
+<div class="archive-layout"><div class="archive-heading"><p class="chapter">THE HUMAN SIDE OF THE VOYAGE</p><h2 id="archive-title">宇宙很大。<span>故事很近。</span></h2><p class="intro">航行参数之外，<br>是那些值得被记住的瞬间。</p><span class="archive-stamp">AETHER ARCHIVE<br>2186 — ONGOING</span></div>
+<div class="archive-reader"><div class="log-tabs" role="tablist" aria-label="选择航行记录"><button role="tab" id="log-tab-0" aria-controls="story-page" aria-selected="true" data-log="0">001 / 启航</button><button role="tab" id="log-tab-1" aria-controls="story-page" aria-selected="false" tabindex="-1" data-log="1">073 / 回声</button><button role="tab" id="log-tab-2" aria-controls="story-page" aria-selected="false" tabindex="-1" data-log="2">112 / 黎明</button></div>
+<article id="story-page" role="tabpanel" aria-labelledby="log-tab-0" tabindex="0"><div class="story-meta"><span id="story-date">2186.03.14</span><span id="story-author">沈遥 / 舰长</span></div><h3 id="story-title">最后一盏灯</h3><div id="story-body"><p>星门启动前，地球还有七分钟可见。舷窗边没有人说话。工程师陈砾把女儿画的蓝色房子贴在控制台下方，那张纸轻得几乎没有重量，却占满了他全部的行李。</p><p>我们没有带旗帜。货舱里是四百粒种子、一座压缩后的图书馆，以及一台会在每天清晨播放鸟鸣的旧录音机。</p><p>航行日志要求我记录引擎状态。我写下“正常”，又在私人备注里添了一句：我们都很害怕。但没有人提出返航。</p></div><p class="story-signature">收录于「以太远征 · 人类记录」</p></article>
+<div class="reader-footer"><span id="story-count">01 / 03</span><button id="next-log" class="quiet-button">下一篇记录</button></div></div></div>
+<div class="scene-foot"><span class="log-label">ARCHIVE</span><p>当坐标被遗忘，愿这些声音仍能抵达。</p><a href="#fleet" class="quiet-button">认识同行的星舰</a></div>
+</section>
+<section id="fleet" class="scene-panel fleet-panel" data-section="2" aria-labelledby="fleet-title">
+<div class="scene-top"><span class="eyebrow">VESSELS OF THE AETHER FLEET</span><span>舰队档案 / 03 艘</span></div>
+<div class="ship-copy" id="ship-panel" role="tabpanel" aria-labelledby="ship-tab-0">
+<p class="chapter" id="ship-class">AE—01 / 远征巡洋舰</p><h2 id="fleet-title"><span id="ship-name">远汐号</span><span class="latin-name" id="ship-latin">THE LONG TIDE</span></h2>
+<p class="intro" id="ship-description">舰队的灯塔与归处。分段装甲下，藏着生态舱、观测甲板，以及全体船员共同守护的地球种子库。</p>
+<dl class="ship-specs"><div><dt>舰长</dt><dd><span id="ship-length">860</span> <small>m</small></dd></div><div><dt>定员</dt><dd><span id="ship-crew">240</span> <small>人</small></dd></div><div><dt>核心任务</dt><dd id="ship-role">深空远征</dd></div></dl>
+<button id="inspect-ship" class="primary" aria-expanded="false" aria-controls="ship-detail">查看舰体细节</button>
+<div id="ship-detail" class="ship-detail" hidden><h3 id="detail-title">分段式装甲与双列引擎</h3><p id="detail-body">舰艏的观测阵列收集航线数据；中段的独立隔舱隔离冲击；舰尾的双列聚变引擎为长距离巡航提供推力。</p></div></div>
+<div class="ship-caption" aria-hidden="true"><span id="ship-view">舰艏左舷 / 三分之四视角</span><small id="ship-study">EXTERIOR STUDY · 01</small></div>
+<div class="fleet-bottom"><div class="ship-tabs" role="tablist" aria-label="选择星际战舰"><button role="tab" id="ship-tab-0" aria-controls="ship-panel" aria-selected="true" data-ship-choice="0"><span>01</span><span>远汐号<small>远征巡洋舰</small></span></button><button role="tab" id="ship-tab-1" aria-controls="ship-panel" aria-selected="false" tabindex="-1" data-ship-choice="1"><span>02</span><span>守望号<small>装甲护航舰</small></span></button><button role="tab" id="ship-tab-2" aria-controls="ship-panel" aria-selected="false" tabindex="-1" data-ship-choice="2"><span>03</span><span>游隼号<small>高速侦察舰</small></span></button></div><p class="fiction-note">舰船、人物与航行参数均为原创科幻设定 · AETHER INITIATIVE</p></div>
+</section>
 </main>
-<footer><span>© 2186 AETHER INITIATIVE</span><span>献给每一个仰望星空的人</span><span>科幻概念体验 <i>✦</i></span></footer>
-<dialog id="about"><button class="close" id="story-close" aria-label="关闭介绍">×</button><p class="chapter">THE AETHER INITIATIVE</p><h2>好奇心，<br>是我们的引力。</h2><p>公元 2186 年，一支探索队离开熟悉的星系，驶向无人抵达的边界。这是他们的航行记录，也是一次关于未知的想象。</p><p class="fine">AETHER 以太是一个虚构的科幻概念体验。所有航行地点与记录均为艺术创作。</p><button class="primary" id="story-go">继续航行 <span>↗</span></button></dialog>
-<script src="app.js?v=3"></script>
-<script src="motion.js?v=3"></script>
+<div class="scene-meter" aria-hidden="true"><span id="scene-number">01</span><span class="meter-track"><i id="meter-fill"></i></span><span>03</span></div>
+<dialog id="about"><button class="close" id="story-close" aria-label="关闭介绍">×</button><p class="chapter">THE AETHER INITIATIVE</p><h2>好奇心，<br>是我们的引力。</h2><p>公元 2186 年，三艘星舰离开熟悉的星系，驶向无人抵达的边界。一段来自过去的信号，让这次寻找新家园的旅程，变成了对人类自身的追问。</p><p>这是一个虚构的科幻叙事体验。可以滚动浏览，也可以通过场景索引切换；开启沉浸模式，静静欣赏深空。</p><button class="primary" id="story-go">继续航行</button></dialog>
+<script src="app.js?v=5"></script><script src="motion.js?v=5"></script>
 </body></html>

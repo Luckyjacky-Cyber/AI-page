@@ -1,36 +1,35 @@
-/* Slow environmental motion; controls stay fixed and easy to target. */
-.scene{background:#040910;overflow:hidden;transform:translate3d(var(--drift-x,0px),var(--drift-y,0px),0) scale(1.07);transition:transform 1.4s;will-change:transform}
-body[data-chapter] .scene{filter:none}
-.chapter-scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.2s ease,visibility 1.2s;pointer-events:none;overflow:hidden}
-body[data-chapter="0"] [data-scene="0"],body[data-chapter="1"] [data-scene="1"],body[data-chapter="2"] [data-scene="2"]{opacity:1;visibility:visible}
-.scene-art{width:100%;height:100%;object-fit:cover;object-position:66% center;animation:space-drift 32s ease-in-out infinite alternate}
-.arrival-scene .original-gate{object-position:68% 48%;animation:original-gate-drift 24s ease-in-out infinite alternate}
-.beyond-scene .scene-art{animation-name:horizon-drift;animation-duration:38s}
-body[data-chapter="1"]{--accent:#d0c3fa}
-body[data-chapter="2"]{--accent:#f5d8b2}
-body[data-chapter="1"] .scene::after{background:radial-gradient(ellipse at 75% 42%,#b892f528,transparent 46%)}
-body[data-chapter="2"] .scene::after{background:radial-gradient(ellipse at 85% 45%,#ffc98b25,transparent 43%)}
-@keyframes original-gate-drift{from{transform:scale(1)}to{transform:scale(1.035) translate3d(-.5%,.3%,0)}}
-@keyframes space-drift{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-1.5%,1%,0)}}
-@keyframes horizon-drift{from{transform:scale(1.04) translate3d(0,1%,0)}to{transform:scale(1.1) translate3d(-1%,0,0)}}
-body.immersive .scene{transform:translate3d(var(--drift-x,0px),var(--drift-y,0px),0) scale(1.12)}
-.scene::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 73% 48%,#94ddf225,transparent 43%);mix-blend-mode:screen;animation:nebula-breathe 9s ease-in-out infinite alternate;pointer-events:none}
+/* Backgrounds are fixed; navigation scrolls normally without trapping wheel or touch. */
+.scene{position:fixed;inset:0;z-index:-3;background:#040910;overflow:hidden;transform:translate3d(var(--drift-x,0px),var(--drift-y,0px),0) scale(1.06);transition:transform 1.2s;will-change:transform}
+.chapter-scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.1s ease,visibility 1.1s;overflow:hidden}
+body[data-chapter="0"] [data-scene="0"],body[data-chapter="1"] [data-scene="1"],body[data-chapter="2"] [data-scene="2"],body[data-chapter="3"] [data-scene="3"],body[data-chapter="4"] [data-scene="4"]{opacity:1;visibility:visible}
+.scene-art{display:block;width:100%;height:100%;object-fit:cover;object-position:66% center;animation:space-drift 32s ease-in-out infinite alternate}
+.original-gate{object-position:68% 48%;animation-name:original-drift}
+[data-scene="2"] .scene-art{animation-duration:38s}
+.archive-scene .scene-art{filter:brightness(.35) saturate(.55);object-position:40% center}
+.ship-art{position:absolute;right:4%;top:9%;width:80%;height:80%;object-fit:contain;object-position:center;opacity:0;transition:opacity .8s;animation:ship-drift 17s ease-in-out infinite alternate;mask-image:linear-gradient(transparent,black 14%,black 84%,transparent)}
+body[data-ship="0"] [data-vessel="0"],body[data-ship="1"] [data-vessel="1"],body[data-ship="2"] [data-vessel="2"]{opacity:1}
+.shade{position:fixed;inset:0;z-index:-2;background:linear-gradient(90deg,#04090fee, #04090f5c 44%,transparent 70%,#04090f70),linear-gradient(0deg,#060a10e8,transparent 40%,#060a1030);pointer-events:none}
+body[data-chapter="3"] .shade{background:linear-gradient(90deg,#04090fe0,#04090f70)}
+body[data-chapter="4"] .shade{background:linear-gradient(90deg,#04090ff5,#04090fbb 25%,#04090f33 44%,transparent 70%,#04090f50),linear-gradient(0deg,#040910d9,transparent 30%)}
+body[data-chapter="1"],body[data-chapter="3"]{--accent:#d2c9f5}
+body[data-chapter="2"]{--accent:#f0d8b3}
+body.immersive .scene{transform:translate3d(var(--drift-x,0px),var(--drift-y,0px),0) scale(1.1)}
+.scene::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 46%,#94ddf219,transparent 43%);mix-blend-mode:screen;animation:nebula-breathe 9s ease-in-out infinite alternate;pointer-events:none}
 .starfield{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
-.motion-toggle{background:transparent;border:0;border-bottom:1px solid #7a9daa66;padding:9px 0;font-size:12px;color:#a8c5d0;white-space:nowrap;margin-left:-22px}
-.motion-toggle:hover{color:#e6faff;border-color:#c8f0f8}.motion-toggle:disabled{opacity:.6;cursor:default}
-.primary{position:relative;overflow:hidden;isolation:isolate}.primary::after{content:'';position:absolute;inset:-60% -80%;background:linear-gradient(105deg,transparent 42%,#ffffff80 50%,transparent 58%);transform:translateX(-65%);animation:button-sheen 7s ease-in-out infinite;pointer-events:none}
-.tabs button{transition:background .3s,box-shadow .3s}.tabs button:hover{box-shadow:inset 0 0 28px #b8ecf709}.tabs button[aria-selected=true]:before{transform-origin:left;animation:chapter-line .65s cubic-bezier(.2,.7,.2,1) both}
-.annotation .cross{display:inline-block;animation:beacon-pulse 4s ease-in-out infinite}.copy{animation:arrival 1.2s cubic-bezier(.2,.7,.2,1) both}.eyebrow{animation:arrival .9s .1s both}.exploration{animation:arrival 1s .25s both}
+.motion-toggle{background:none;border:0;border-bottom:1px solid #7a9daa66;padding:9px 0;font-size:12px;color:#a8c5d0;white-space:nowrap}.motion-toggle:hover{color:#fff}.motion-toggle:disabled{opacity:.5;cursor:default}
+.primary{position:relative;overflow:hidden;isolation:isolate}.primary::after{content:'';position:absolute;inset:-60% -80%;background:linear-gradient(105deg,transparent 42%,#ffffff60 50%,transparent 58%);transform:translateX(-65%);animation:button-sheen 7s ease-in-out infinite;pointer-events:none}
+.cross{animation:beacon-pulse 4s ease-in-out infinite}.waveform i{animation:wave-pulse 1.8s ease-in-out infinite alternate}.waveform i:nth-child(3n){animation-delay:-.8s}.waveform i:nth-child(4n){animation-delay:-1.4s}.waveform i:nth-child(5n){animation-delay:-.4s}
 body.motion-paused *,body.motion-paused *::before,body.motion-paused *::after,body.motion-hidden *,body.motion-hidden *::before,body.motion-hidden *::after{animation-play-state:paused!important}
-body.motion-paused .copy,body.motion-paused .eyebrow,body.motion-paused .exploration{animation:none!important}body.motion-paused .scene{will-change:auto}
-body.motion-paused .chapter-scene{transition:none}
-@keyframes nebula-breathe{from{opacity:.25;transform:scale(1)}to{opacity:.8;transform:scale(1.05)}}
+body.motion-paused .chapter-scene,body.motion-paused .ship-art{transition:none}body.motion-paused .scene{will-change:auto}
+@keyframes original-drift{from{transform:scale(1)}to{transform:scale(1.035) translate3d(-.5%,.3%,0)}}
+@keyframes space-drift{from{transform:scale(1.02)}to{transform:scale(1.1) translate3d(-1%,1%,0)}}
+@keyframes ship-drift{from{transform:translate3d(0,-5px,0)}to{transform:translate3d(-8px,7px,0)}}
+@keyframes nebula-breathe{from{opacity:.25}to{opacity:.8}}
+@keyframes wave-pulse{from{transform:scaleY(.45);opacity:.3}to{transform:scaleY(1);opacity:.9}}
 @keyframes button-sheen{0%,65%{transform:translateX(-65%)}90%,100%{transform:translateX(65%)}}
-@keyframes beacon-pulse{0%,100%{opacity:.45;text-shadow:0 0 0 transparent}50%{opacity:1;text-shadow:0 0 14px #b8ecf7}}
-@keyframes chapter-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes arrival{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
-@media(max-width:850px){header{gap:22px}.motion-toggle{margin-left:0}}
-@media(max-width:850px){.scene-art{object-position:70% center}.arrival-scene .original-gate{object-position:58% center}}
-@media(max-width:520px){.arrival-scene .original-gate{object-position:60% center}.scene-art{object-position:65% center}.shade{background:linear-gradient(90deg,#04090fea,#04090f40),linear-gradient(0deg,#070b10 4%,transparent 65%)}}
-@media(max-width:520px){header{position:relative;gap:12px}.motion-toggle{position:absolute;right:0;top:99px;font-size:11px;padding:4px 0;z-index:2}.eyebrow{padding-right:62px}.eyebrow .edition{display:none}}
+@keyframes beacon-pulse{0%,100%{opacity:.4;text-shadow:none}50%{opacity:1;text-shadow:0 0 14px #b8ecf7}}
+@media(max-width:850px){.original-gate{object-position:58% center}.scene-art{object-position:68% center}.ship-art{width:105%;right:5%;height:46%;top:6%}body[data-chapter="4"] .shade{background:linear-gradient(0deg,#040910f0 10%,#040910d0 40%,#04091010 70%,#04091030)}.scene-nav{transition:opacity .4s}}
+@media(max-width:520px){.original-gate{object-position:60% center}.motion-toggle{position:absolute;right:0;top:86px;font-size:10px;padding:5px 0}.scene-top{padding-right:64px}.ship-art{width:120%;right:7%;height:40%;top:13%}.shade{background:linear-gradient(90deg,#04090fd9,#04090f50),linear-gradient(0deg,#070b10b3,transparent 70%)}}
 @media(prefers-reduced-motion:reduce){.scene{will-change:auto}.scene::after,.primary::after,.starfield{display:none}}
+
+@media(max-width:520px){.ship-art{width:98%;right:5%;height:36%;top:11%}.ship-caption{display:none}}
